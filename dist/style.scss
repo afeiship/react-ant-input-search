@@ -10,6 +10,7 @@ $react-ant-input-search-options:(
   &.ant-input-search.ant-input-search-enter-button{
     &>.ant-input-suffix{
       position: relative;
+      top:0;
       transform: translate(0,0);
     }
     &>.ant-input{
