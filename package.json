@@ -81,16 +81,18 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "react": "^16.4.1",
     "antd": "^3.6.2",
+    "react-dom": "^16.4.1"
+  },
+  "dependencies": {
     "classnames": "^2.2.5",
     "mixin-decorator": "github:afeiship/mixin-decorator",
     "next-dom-event": "github:afeiship/next-dom-event",
     "next-return-event": "github:afeiship/next-return-event",
     "noop": "github:afeiship/noop",
     "object-assign": "^4.1.1",
-    "prop-types": "^15.5.10",
-    "react": "*",
-    "react-dom": "*"
+    "prop-types": "^15.5.10"
   }
 }
