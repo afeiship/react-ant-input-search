@@ -18,7 +18,7 @@ npm install -S @feizheng/react-ant-input-search
   ```js
   import React from 'react';
   import ReactDOM from 'react-dom';
-  import ReactAntInputSearch from 'react-ant-input-search';
+  import ReactAntInputSearch from '@feizheng/react-ant-input-search';
   
   // your app:
   class App extends React.Component{
