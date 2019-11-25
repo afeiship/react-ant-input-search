@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import noop from 'noop';
+import noop from '@feizheng/noop';
 import objectAssign from 'object-assign';
 import { Input } from 'antd';
-import { returnEventTarget } from 'next-return-event';
+
+const CLASS_NAME = 'react-ant-input-search';
 
 export default class extends Component {
-  /*===properties start===*/
+  static displayName = CLASS_NAME;
   static propTypes = {
     className: PropTypes.string,
     onChange: PropTypes.func,
-    onClear: PropTypes.func,
+    onClear: PropTypes.func
   };
 
   static defaultProps = {
     onChange: noop,
     onClear: noop
   };
-  /*===properties end===*/
 
-  _onChange = (inEvent) => {
+  onChange = (inEvent) => {
     const { onChange, onClear } = this.props;
     const { value } = inEvent.target;
     onChange(inEvent);
@@ -31,7 +31,13 @@ export default class extends Component {
   render() {
     const { className, onChange, onClear, ...props } = this.props;
     return (
-      <Input.Search type="search" onChange={this._onChange} {...props} className={classNames('react-ant-input-search', className)} />
+      <Input.Search
+        data-component={CLASS_NAME}
+        className={classNames(CLASS_NAME, className)}
+        type="search"
+        onChange={this.onChange}
+        {...props}
+      />
     );
   }
 }

@@ -1,2 +1,2 @@
-import ReactAntInputSearch from 'components/react-ant-input-search';
+import ReactAntInputSearch from './components';
 export default ReactAntInputSearch;

@@ -1,28 +1,26 @@
-$react-ant-input-search-options:(
+$react-ant-input-search-options: () !default;
 
-)!default;
-
-.react-ant-input-search{
+.react-ant-input-search {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  &.ant-input-search.ant-input-search-enter-button{
-    &>.ant-input-suffix{
+  &.ant-input-search.ant-input-search-enter-button {
+    & > .ant-input-suffix {
       position: relative;
-      top:0;
-      transform: translate(0,0);
+      top: 0;
+      transform: translate(0, 0);
     }
-    &>.ant-input{
+    & > .ant-input {
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
       width: auto;
-      flex:1;
-      padding-right:10px;
+      flex: 1;
+      padding-right: 10px;
     }
   }
 
-  input[type="search"]{
+  input[type="search"] {
     &::-webkit-search-cancel-button {
       border: 1px solid #000;
       -webkit-appearance: searchfield-cancel-button;
