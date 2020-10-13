@@ -1,33 +1,27 @@
-import ReactAntInputSearch from '../src/main';
-import ReactDOM from 'react-dom';
+import ReactDemokit from '@feizheng/react-demokit';
 import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactAntInputSearch from '../src/main';
 import './assets/style.scss';
 
 class App extends React.Component {
-  constructor(inProps) {
-    super(inProps);
-    this.state = {
-      value: 'abc'
-    };
-  }
 
-  onChange1 = (inEvent) => {
-    console.log('change::', inEvent.target.value);
-  };
-
-  onClear1 = (inEvent) => {
-    console.log('clear::', inEvent.target.value);
+  handleChange = (inEvent) => {
+    const { action, value } = inEvent.target;
+    console.log('value:', action, value);
   };
 
   render() {
     return (
-      <div className="app-container">
+      <ReactDemokit
+        className="p-3 app-container"
+        url="https://github.com/afeiship/react-ant-input-search">
         <ReactAntInputSearch
-          defaultValue={'abc'}
-          onChange={this.onChange1}
-          onClear={this.onClear1}
+          allowClear
+          className="bg-gray-800 mb-5 text-white"
+          onChange={this.handleChange}
         />
-      </div>
+      </ReactDemokit>
     );
   }
 }

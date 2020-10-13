@@ -1,41 +1,45 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import noop from '@feizheng/noop';
-import objectAssign from 'object-assign';
 import { Input } from 'antd';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 const CLASS_NAME = 'react-ant-input-search';
 
-export default class extends Component {
+export default class ReactAntInputSearch extends Component {
   static displayName = CLASS_NAME;
+  static version = '__VERSION__';
   static propTypes = {
+    /**
+     * The extended className for component.
+     */
     className: PropTypes.string,
-    onChange: PropTypes.func,
-    onClear: PropTypes.func
+    /**
+     * The change handler.
+     */
+    onChange: PropTypes.func
   };
 
   static defaultProps = {
-    onChange: noop,
-    onClear: noop
+    onChange: noop
   };
 
-  onChange = (inEvent) => {
-    const { onChange, onClear } = this.props;
+  handleChange = (inAction, inEvent) => {
+    const { onChange } = this.props;
     const { value } = inEvent.target;
-    onChange(inEvent);
-    !value && onClear(inEvent);
+    const action = !value ? 'clear' : inAction;
+    const target = { action, value };
+    onChange({ target });
   };
 
   render() {
-    const { className, onChange, onClear, ...props } = this.props;
+    const { className, onChange, ...props } = this.props;
     return (
       <Input.Search
         data-component={CLASS_NAME}
         className={classNames(CLASS_NAME, className)}
-        type="search"
-        onChange={this.onChange}
+        onPressEnter={this.handleChange.bind(this, 'enter')}
+        onChange={this.handleChange.bind(this, 'change')}
         {...props}
       />
     );
