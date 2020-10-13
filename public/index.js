@@ -18,6 +18,7 @@ class App extends React.Component {
         url="https://github.com/afeiship/react-ant-input-search">
         <ReactAntInputSearch
           allowClear
+          enterButton
           className="bg-gray-800 mb-5 text-white"
           onChange={this.handleChange}
         />

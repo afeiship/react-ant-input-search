@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-ant-input-search",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Ant input search box optimize.",
   "main": "dist/index.js",
   "scripts": {

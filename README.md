@@ -16,6 +16,14 @@ npm install -S @feizheng/react-ant-input-search
 npm update @feizheng/react-ant-input-search
 ```
 
+## event action
+| name   | description                 |
+| ------ | --------------------------- |
+| clear  | When value change to empty. |
+| search | When trigger seach action.  |
+| change | When value changed.         |
+| enter  | When press enter.           |
+
 ## properties
 | Name      | Type   | Required | Default | Description                           |
 | --------- | ------ | -------- | ------- | ------------------------------------- |
@@ -53,6 +61,7 @@ npm update @feizheng/react-ant-input-search
           url="https://github.com/afeiship/react-ant-input-search">
           <ReactAntInputSearch
             allowClear
+            enterButton
             className="bg-gray-800 mb-5 text-white"
             onChange={this.handleChange}
           />

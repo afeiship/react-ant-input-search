@@ -26,9 +26,9 @@ export default class ReactAntInputSearch extends Component {
 
   handleChange = (inAction, inEvent) => {
     const { onChange } = this.props;
-    const { value } = inEvent.target;
-    const action = !value ? 'clear' : inAction;
-    const target = { action, value };
+    const { value } =
+      inAction === 'search' ? { value: inEvent } : inEvent.target;
+    const target = { action: inAction, value };
     onChange({ target });
   };
 
@@ -40,6 +40,7 @@ export default class ReactAntInputSearch extends Component {
         className={classNames(CLASS_NAME, className)}
         onPressEnter={this.handleChange.bind(this, 'enter')}
         onChange={this.handleChange.bind(this, 'change')}
+        onSearch={this.handleChange.bind(this, 'search')}
         {...props}
       />
     );

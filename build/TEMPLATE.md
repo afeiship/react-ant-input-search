@@ -16,6 +16,14 @@ npm install -S @feizheng/react-ant-input-search
 npm update @feizheng/react-ant-input-search
 ```
 
+## event action
+| name   | description                 |
+| ------ | --------------------------- |
+| clear  | When value change to empty. |
+| search | When trigger seach action.  |
+| change | When value changed.         |
+| enter  | When press enter.           |
+
 ## properties
 __GENERATE_DOCS__
 
