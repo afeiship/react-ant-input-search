@@ -1,4 +1,4 @@
-import noop from '@feizheng/noop';
+import noop from '@jswork/noop';
 import { Input } from 'antd';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';

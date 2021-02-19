@@ -1,16 +1,14 @@
-import ReactDemokit from '@feizheng/react-demokit';
+import ReactDemokit from '@jswork/react-demokit';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactAntInputSearch from '../src/main';
 import './assets/style.scss';
 
 class App extends React.Component {
-
   handleChange = (inEvent) => {
     const { action, value } = inEvent.target;
     console.log('value:', action, value);
   };
-
   render() {
     return (
       <ReactDemokit
