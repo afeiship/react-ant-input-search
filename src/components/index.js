@@ -45,7 +45,6 @@ export default class ReactAntInputSearch extends Component {
       <Input.Search
         data-component={CLASS_NAME}
         className={classNames(CLASS_NAME, className)}
-        enterButton={this.handleSearch}
         onSearch={this.handleSearch}
         {...props}
       />
