@@ -6,6 +6,14 @@ import React, { Component } from 'react';
 
 const CLASS_NAME = 'react-ant-input-search';
 
+/**
+ * @fix:
+ * 当用户 clear 的时候onSearch 会先于 onChange 触发, 导致搜索框 onChange值显示为上一次的值
+ *
+ * @enhance:
+ * onSeach/onChange 事件对象统一为 { target: { value: 'xxx'} }
+ */
+
 export default class ReactAntInputSearch extends Component {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
@@ -15,32 +23,30 @@ export default class ReactAntInputSearch extends Component {
      */
     className: PropTypes.string,
     /**
-     * The change handler.
+     * The search handler.
      */
-    onChange: PropTypes.func
+    onSearch: PropTypes.func
   };
 
   static defaultProps = {
-    onChange: noop
+    onSearch: noop
   };
 
-  handleChange = (inAction, inEvent) => {
-    const { onChange } = this.props;
-    const { value } =
-      inAction === 'search' ? { value: inEvent } : inEvent.target;
-    const target = { action: inAction, value };
-    onChange({ target });
+  handleSearch = (inEvent) => {
+    const target = { value: inEvent };
+    setTimeout(() => {
+      this.props.onSearch({ target });
+    }, 10);
   };
 
   render() {
-    const { className, onChange, ...props } = this.props;
+    const { className, onSearch, ...props } = this.props;
     return (
       <Input.Search
         data-component={CLASS_NAME}
         className={classNames(CLASS_NAME, className)}
-        onPressEnter={this.handleChange.bind(this, 'enter')}
-        onChange={this.handleChange.bind(this, 'change')}
-        onSearch={this.handleChange.bind(this, 'search')}
+        enterButton={this.handleSearch}
+        onSearch={this.handleSearch}
         {...props}
       />
     );
