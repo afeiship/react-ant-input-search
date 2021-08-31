@@ -15,7 +15,7 @@ npm install -S @jswork/react-ant-input-search
 | Name      | Type   | Required | Default | Description                           |
 | --------- | ------ | -------- | ------- | ------------------------------------- |
 | className | string | false    | -       | The extended className for component. |
-| onChange  | func   | false    | noop    | The change handler.                   |
+| onSearch  | func   | false    | noop    | The search handler.                   |
 
 
 ## usage
@@ -39,19 +39,27 @@ npm install -S @jswork/react-ant-input-search
 
   class App extends React.Component {
     handleChange = (inEvent) => {
-      const { action, value } = inEvent.target;
-      console.log('value:', action, value);
+      const { value } = inEvent.target;
+      console.log('change:', value);
     };
+
+    handleSearch = (inEvent) => {
+      const { value } = inEvent.target;
+      console.log('search.', value);
+    };
+
     render() {
       return (
         <ReactDemokit
           className="p-3 app-container"
           url="https://github.com/afeiship/react-ant-input-search">
           <ReactAntInputSearch
+            placeholder="input search text"
             allowClear
             enterButton
             className="bg-gray-800 mb-5 text-white"
             onChange={this.handleChange}
+            onSearch={this.handleSearch}
           />
         </ReactDemokit>
       );
