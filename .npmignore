@@ -33,4 +33,3 @@ jest.config.js
 jest.setup.js
 
 .release-it.json
-dist
