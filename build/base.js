@@ -15,15 +15,7 @@ export default {
     alias: configs.alias()
   },
   module: {
-    rules: [
-      loaders.babel(),
-      loaders.image(),
-      loaders.sass(),
-      loaders.version()
-    ]
+    rules: [loaders.babel(), loaders.image(), loaders.sass(), loaders.version()]
   },
-  plugins: [
-    plugins.progressBar(),
-    plugins.minCssExtract()
-  ]
+  plugins: [plugins.progressBar(), plugins.minCssExtract()]
 };

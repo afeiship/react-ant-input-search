@@ -33,9 +33,11 @@ export default class ReactAntInputSearch extends Component {
   };
 
   handleSearch = (inEvent) => {
+    const { onSearch } = this.props;
     const target = { value: inEvent };
-    setTimeout(() => {
-      this.props.onSearch({ target });
+    const timer = setTimeout(() => {
+      onSearch({ target });
+      clearTimeout(timer);
     }, 10);
   };
 
