@@ -33,7 +33,7 @@ npm install -S @jswork/react-ant-input-search
   ```js
   import ReactDemokit from '@jswork/react-demokit';
   import React from 'react';
-  import ReactDOM from 'react-dom';
+  import ReactDOM from 'react-dom/client';
   import ReactAntInputSearch from '@jswork/react-ant-input-search';
   import './assets/style.scss';
 
@@ -66,7 +66,8 @@ npm install -S @jswork/react-ant-input-search
     }
   }
 
-  ReactDOM.render(<App />, document.getElementById('app'));
+  // ReactDOM.render(<App />, document.getElementById('app'));
+  ReactDOM.createRoot(document.getElementById('app')).render(<App />);
 
   ```
 
